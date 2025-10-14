@@ -72,3 +72,14 @@ const currencies = new Map([
 ]);
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// ----------------------------------------------
+
+let arr = ["a", "b", "c", "d", "e"];
+
+// SLICE
+
+let sliced = arr.slice(0, 3);
+
+console.log(arr); // doesn't change
+console.log(sliced);
