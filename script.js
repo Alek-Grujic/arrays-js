@@ -81,7 +81,24 @@ let arr = ["a", "b", "c", "d", "e"];
 
 // let sliced = arr.slice(0, 3);
 // let sliced = arr.slice(); // duplicated array
-let sliced = arr.slice(-1); // picking elements from the back
+// let sliced = arr.slice(-1); // picking elements from the back
 
-console.log(arr); // doesn't change
-console.log(sliced);
+// console.log(arr); // doesn't change
+// console.log(sliced);
+
+// SPLICE
+
+// let spliced = arr.splice(1); // deleted everything from the second element
+
+// console.log(spliced); // ['b', 'c', 'd', 'd']
+// console.log(arr); // ['a']
+
+// let spliced = arr.splice(1, 2); // deleted two elements from second element(1)
+
+// console.log(spliced); // ['b', 'c']
+// console.log(arr); // ['a', 'd', 'e']
+
+let spliced = arr.splice(1, 2, "Smith"); // deleted two elements from second element(1) and adds new element to the original array
+
+console.log(spliced); // ['b', 'c']
+console.log(arr); // ['a', 'Smith', 'd', 'e']
