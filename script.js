@@ -98,7 +98,15 @@ let arr = ["a", "b", "c", "d", "e"];
 // console.log(spliced); // ['b', 'c']
 // console.log(arr); // ['a', 'd', 'e']
 
-let spliced = arr.splice(1, 2, "Smith"); // deleted two elements from second element(1) and adds new element to the original array
+// let spliced = arr.splice(1, 2, "Smith"); // deleted two elements from second element(1) and adds new element to the original array
 
-console.log(spliced); // ['b', 'c']
-console.log(arr); // ['a', 'Smith', 'd', 'e']
+// console.log(spliced); // ['b', 'c']
+// console.log(arr); // ['a', 'Smith', 'd', 'e']
+
+// REVERSE
+
+let alphabet = ["e", "d", "c", "b", "a"];
+
+alphabet.reverse();
+
+console.log(alphabet); // ['a', 'b', 'c', 'd', 'e']
