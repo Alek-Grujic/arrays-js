@@ -80,7 +80,8 @@ let arr = ["a", "b", "c", "d", "e"];
 // SLICE
 
 // let sliced = arr.slice(0, 3);
-let sliced = arr.slice();
+// let sliced = arr.slice(); // duplicated array
+let sliced = arr.slice(-1); // picking elements from the back
 
 console.log(arr); // doesn't change
 console.log(sliced);
