@@ -105,8 +105,16 @@ let arr = ["a", "b", "c", "d", "e"];
 
 // REVERSE
 
-let alphabet = ["e", "d", "c", "b", "a"];
+// let alphabet = ["e", "d", "c", "b", "a"];
 
-alphabet.reverse();
+// alphabet.reverse();
 
-console.log(alphabet); // ['a', 'b', 'c', 'd', 'e']
+// console.log(alphabet); // ['a', 'b', 'c', 'd', 'e']
+
+// CONCAT
+
+let moreLetters = ["f", "g", "h", "i", "j"];
+// let firstTenLetters = arr.concat(moreLetters);
+let firstTenLetters = [...arr, ...moreLetters]; // another way to combine two arrays
+
+console.log(firstTenLetters); // ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
