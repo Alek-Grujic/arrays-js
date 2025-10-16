@@ -124,3 +124,12 @@ console.log(firstTenLetters); // ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', '
 let joined = firstTenLetters.join("-");
 
 console.log(joined);
+
+// AT
+
+let num = [1, 2, 3, 4, 5];
+
+let atMethod = num.at(-1);
+console.log(atMethod);
+// console.log(num.at(-1));
+// console.log(num[-1]);
