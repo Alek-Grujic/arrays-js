@@ -118,3 +118,9 @@ let moreLetters = ["f", "g", "h", "i", "j"];
 let firstTenLetters = [...arr, ...moreLetters]; // another way to combine two arrays
 
 console.log(firstTenLetters); // ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+// JOIN
+
+let joined = firstTenLetters.join("-");
+
+console.log(joined);
