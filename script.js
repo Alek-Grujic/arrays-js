@@ -71,7 +71,7 @@ const currencies = new Map([
   ["GBP", "Pound sterling"],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // ----------------------------------------------
 
@@ -130,6 +130,19 @@ console.log(joined);
 let num = [1, 2, 3, 4, 5];
 
 let atMethod = num.at(-1);
-console.log(atMethod);
-// console.log(num.at(-1));
-// console.log(num[-1]);
+console.log(atMethod); // 5
+// console.log(num.at(-1)); // last element
+
+// console.log(num[-1]); // undefined
+
+// FOREACH
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+for (let movement of movements) {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdraw ${Math.abs(movement)}`);
+  }
+}
