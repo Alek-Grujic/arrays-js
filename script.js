@@ -113,24 +113,24 @@ let arr = ["a", "b", "c", "d", "e"];
 
 // CONCAT
 
-let moreLetters = ["f", "g", "h", "i", "j"];
-// let firstTenLetters = arr.concat(moreLetters);
-let firstTenLetters = [...arr, ...moreLetters]; // another way to combine two arrays
+// let moreLetters = ["f", "g", "h", "i", "j"];
+// // let firstTenLetters = arr.concat(moreLetters);
+// let firstTenLetters = [...arr, ...moreLetters]; // another way to combine two arrays
 
-console.log(firstTenLetters); // ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+// console.log(firstTenLetters); // ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
 
-// JOIN
+// // JOIN
 
-let joined = firstTenLetters.join("-");
+// let joined = firstTenLetters.join("-");
 
-console.log(joined);
+// console.log(joined);
 
-// AT
+// // AT
 
-let num = [1, 2, 3, 4, 5];
+// let num = [1, 2, 3, 4, 5];
 
-let atMethod = num.at(-1);
-console.log(atMethod); // 5
+// let atMethod = num.at(-1);
+// console.log(atMethod); // 5
 // console.log(num.at(-1)); // last element
 
 // console.log(num[-1]); // undefined
@@ -139,10 +139,19 @@ console.log(atMethod); // 5
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-for (let movement of movements) {
+// for (let movement of movements) {
+//   if (movement > 0) {
+//     console.log(`You deposited ${movement}`);
+//   } else {
+//     console.log(`You withdraw ${Math.abs(movement)}`);
+//   }
+// }
+
+// forEach example
+movements.forEach(function (movement) {
   if (movement > 0) {
     console.log(`You deposited ${movement}`);
   } else {
     console.log(`You withdraw ${Math.abs(movement)}`);
   }
-}
+});
