@@ -66,13 +66,11 @@ const displayMovements = function (movements) {
     const type = mov > 0 ? "deposit" : "withdrawal";
 
     const html = `
-        <div class="movements__row">
-          <div class="movements__type movements__type--${type}">${
-      i + 1
-    } ${type}</div>
-          <div class="movements__value">${mov}</div>
-        </div>
-        `;
+    <div class="movements__row">
+    <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
+    <div class="movements__value">${mov}</div>
+    </div>
+    `;
     containerMovements.insertAdjacentHTML("afterbegin", html);
   });
 };
@@ -211,3 +209,29 @@ let arr = ["a", "b", "c", "d", "e"];
 // currenciesUnique.forEach(function (value) {
 //   console.log(value);
 // });
+
+// --------------------------
+
+// mini exercise with insertAdjacentHTML()
+
+const comments = document.querySelector(".comments");
+const commentForm = document.querySelector(".comment-form");
+const commentInput = document.querySelector(".comment-input");
+const commentBtn = document.querySelector(".comment-btn");
+
+commentForm.addEventListener("submit", function (a) {
+  a.preventDefault();
+  console.log("Form subbmited");
+
+  const valueCom = commentInput.value.trim();
+
+  if (valueCom !== "") {
+    const newComment = `
+      <p class="newCom">
+        ${valueCom}
+      </p>
+    `;
+    comments.insertAdjacentHTML("beforeend", newComment);
+    commentInput.value = "";
+  }
+});
