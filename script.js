@@ -62,6 +62,7 @@ const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
 const displayMovements = function (movements) {
+  containerMovements.innerHTML = "";
   movements.forEach(function (mov, i) {
     const type = mov > 0 ? "deposit" : "withdrawal";
 
@@ -214,24 +215,26 @@ let arr = ["a", "b", "c", "d", "e"];
 
 // mini exercise with insertAdjacentHTML()
 
-const comments = document.querySelector(".comments");
-const commentForm = document.querySelector(".comment-form");
-const commentInput = document.querySelector(".comment-input");
-const commentBtn = document.querySelector(".comment-btn");
+// const comments = document.querySelector(".comments");
+// const commentForm = document.querySelector(".comment-form");
+// const commentInput = document.querySelector(".comment-input");
+// const commentBtn = document.querySelector(".comment-btn");
 
-commentForm.addEventListener("submit", function (a) {
-  a.preventDefault();
-  console.log("Form subbmited");
+// commentForm.addEventListener("submit", function (a) {
+//   a.preventDefault();
+//   console.log("Form subbmited");
 
-  const valueCom = commentInput.value.trim();
+//   const valueCom = commentInput.value.trim();
 
-  if (valueCom !== "") {
-    const newComment = `
-      <p class="newCom">
-        ${valueCom}
-      </p>
-    `;
-    comments.insertAdjacentHTML("beforeend", newComment);
-    commentInput.value = "";
-  }
-});
+//   if (valueCom !== "") {
+//     const newComment = `
+//       <p class="newCom">
+//         ${valueCom}
+//       </p>
+//     `;
+//     comments.insertAdjacentHTML("beforeend", newComment);
+//     commentInput.value = "";
+//   }
+// });
+
+// -------------------------
