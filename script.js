@@ -259,26 +259,40 @@ TEST DATA 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
 GOOD LUCK 😀
 */
 
-const juliaData = [3, 2, 5, 12, 7];
-const kateData = [4, 1, 15, 8, 3];
+// const juliaData = [3, 2, 5, 12, 7];
+// const kateData = [4, 1, 15, 8, 3];
 
-function checkDogs(dogsJulia, dogsKate) {
-  let correctedJuliaArr = [...dogsJulia].slice(1); // [2, 5, 12, 7]
-  correctedJuliaArr.splice(2, 2); // [2, 5]
+// function checkDogs(dogsJulia, dogsKate) {
+//   let correctedJuliaArr = [...dogsJulia].slice(1); // [2, 5, 12, 7]
+//   correctedJuliaArr.splice(2, 2); // [2, 5]
 
-  let combinedArr = [...correctedJuliaArr, ...dogsKate];
+//   let combinedArr = [...correctedJuliaArr, ...dogsKate];
 
-  console.log(combinedArr);
+//   console.log(combinedArr);
 
-  combinedArr.forEach(function (age, i) {
-    if (age >= 3) {
-      console.log(`Dog number ${i + 1} is an adult, and is ${age} years old`);
-    } else {
-      console.log(`Dog number ${i + 1} is a puppy, and is ${age} years old`);
-    }
-  });
-}
+//   combinedArr.forEach(function (age, i) {
+//     if (age >= 3) {
+//       console.log(`Dog number ${i + 1} is an adult, and is ${age} years old`);
+//     } else {
+//       console.log(`Dog number ${i + 1} is a puppy, and is ${age} years old`);
+//     }
+//   });
+// }
 
-checkDogs(juliaData, kateData);
+// checkDogs(juliaData, kateData);
 
 // ---------------------------------------------------------
+
+// MAP
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const eurToUsd = 1.1;
+
+const movementsUsd = movements.map(function (mov) {
+  return mov * eurToUsd;
+});
+
+console.log(movements);
+
+console.log(movementsUsd);
