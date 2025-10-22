@@ -296,3 +296,9 @@ const movementsUsd = movements.map(function (mov) {
 console.log(movements);
 
 console.log(movementsUsd);
+
+// using arrow function
+
+const movementsUsdArrow = movements.map((mov) => mov * eurToUsd);
+
+console.log(movementsUsdArrow);
