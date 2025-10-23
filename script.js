@@ -285,20 +285,58 @@ GOOD LUCK 😀
 
 // MAP
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const eurToUsd = 1.1;
+// const eurToUsd = 1.1;
 
-const movementsUsd = movements.map(function (mov) {
-  return mov * eurToUsd;
-});
+// const movementsUsd = movements.map(function (mov) {
+//   return mov * eurToUsd;
+// });
 
-console.log(movements);
+// console.log(movements);
 
-console.log(movementsUsd);
+// console.log(movementsUsd);
 
-// using arrow function
+// // using arrow function
 
-const movementsUsdArrow = movements.map((mov) => mov * eurToUsd);
+// const movementsUsdArrow = movements.map((mov) => mov * eurToUsd);
 
-console.log(movementsUsdArrow);
+// console.log(movementsUsdArrow);
+
+// -------------------------------------
+
+// exercise with map
+
+console.log(accounts);
+
+// let splitedArr = [];
+
+// accounts.forEach(function (key) {
+//   console.log(key.owner);
+//   let splited = key.owner.split();
+//   console.log(splited);
+//   splitedArr.push(splited);
+// });
+// console.log(splitedArr);
+// splitedArr.forEach(function (key) {
+//   console.log(key);
+// });
+
+// function createUserName(name) {
+//   const userName = name
+//     .toLowerCase()
+//     .split(" ")
+//     .map((str) => str[0])
+//     .join("");
+//   return userName;
+// }
+
+// console.log(createUserName("Mark John"));
+
+const names = accounts.map((name) => name.owner.split(" "));
+
+console.log(names);
+
+let maped = names.map((str) => str.slice(0, 1));
+
+console.log(maped);
