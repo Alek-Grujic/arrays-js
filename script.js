@@ -307,7 +307,7 @@ GOOD LUCK 😀
 
 // exercise with map
 
-console.log(accounts);
+// console.log(accounts);
 
 // let splitedArr = [];
 
@@ -335,8 +335,9 @@ console.log(accounts);
 
 const names = accounts.map((name) => name.owner.split(" "));
 
-console.log(names);
+let maped = names.map((str) => str.map((letter) => letter[0]));
 
-let maped = names.map((str) => str.slice(0, 1));
-
-console.log(maped);
+maped.forEach(function (key, i) {
+  let joined = key.join("").toLowerCase();
+  console.log(`${names[i].join(" ")} - ${joined}`);
+});
