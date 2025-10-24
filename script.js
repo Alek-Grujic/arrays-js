@@ -333,11 +333,24 @@ GOOD LUCK 😀
 
 // console.log(createUserName("Mark John"));
 
-const names = accounts.map((name) => name.owner.split(" "));
+// const names = accounts.map((name) => name.owner.split(" "));
 
-let maped = names.map((str) => str.map((letter) => letter[0]));
+// let maped = names.map((str) => str.map((letter) => letter[0]));
 
-maped.forEach(function (key, i) {
-  let joined = key.join("").toLowerCase();
-  console.log(`${names[i].join(" ")} - ${joined}`);
-});
+// maped.forEach(function (key, i) {
+//   let joined = key.join("").toLowerCase();
+//   console.log(`${names[i].join(" ")} - ${joined}`);
+// });
+
+function createUsernames(accs) {
+  accs.forEach(function (key) {
+    console.log(key);
+    key.username = key.owner
+      .toLowerCase()
+      .split(" ")
+      .map((name) => name[0])
+      .join("");
+  });
+}
+
+createUsernames(accounts);
