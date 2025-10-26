@@ -74,6 +74,8 @@ const displayMovements = function (movements) {
     `;
     containerMovements.insertAdjacentHTML("afterbegin", html);
   });
+  let balance = movements.reduce((acc, curr) => acc + curr);
+  labelBalance.textContent = `${balance}€`;
 };
 
 displayMovements(account1.movements);
@@ -374,3 +376,7 @@ const balance = movements.reduce(function (acc, curr, i) {
 }, 0);
 
 console.log(balance);
+
+const maxValue = movements.reduce((acc, curr) => (acc > curr ? acc : curr));
+
+console.log(maxValue);
