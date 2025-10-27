@@ -398,17 +398,27 @@ TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 
 */
 
+// function calcAverageHumanAge(ages) {
+//   let humanAge = ages
+//     .map((age) => (age <= 2 ? 2 * age : 16 + age * 4))
+//     .filter((filteredAge) => filteredAge >= 18);
+//   // .reduce((acc, curr) => acc + curr);
+//   let reduced = humanAge.reduce((acc, curr) => acc + curr, 0);
+//   let average;
+//   if (humanAge.length !== 0) {
+//     average = reduced / humanAge.length;
+//     return average;
+//   }
+// }
+
+// console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
+
 function calcAverageHumanAge(ages) {
   let humanAge = ages
     .map((age) => (age <= 2 ? 2 * age : 16 + age * 4))
-    .filter((filteredAge) => filteredAge >= 18);
-  // .reduce((acc, curr) => acc + curr);
-  let reduced = humanAge.reduce((acc, curr) => acc + curr, 0);
-  let average;
-  if (humanAge.length !== 0) {
-    average = reduced / humanAge.length;
-    return average;
-  }
+    .filter((filteredAge) => filteredAge >= 18)
+    .reduce((acc, curr, i, arr) => acc + curr / arr.length, 0);
+  return humanAge;
 }
 
 console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
