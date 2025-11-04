@@ -61,7 +61,7 @@ const inputLoanAmount = document.querySelector(".form__input--loan-amount");
 const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
-const displayMovements = function (movements) {
+const displayMovements = function (movements, interest) {
   containerMovements.innerHTML = "";
   movements.forEach(function (mov, i) {
     const type = mov > 0 ? "deposit" : "withdrawal";
@@ -74,11 +74,30 @@ const displayMovements = function (movements) {
     `;
     containerMovements.insertAdjacentHTML("afterbegin", html);
   });
-  let balance = movements.reduce((acc, curr) => acc + curr);
+  let balance = movements.reduce((acc, curr) => acc + curr, 0);
   labelBalance.textContent = `${balance}€`;
+
+  // summary
+
+  const sumIn = movements
+    .filter((num) => num > 0)
+    .reduce((acc, curr) => acc + curr, 0);
+  labelSumIn.textContent = `${sumIn}€`;
+
+  const sumOut = movements
+    .filter((num) => num < 0)
+    .reduce((acc, curr) => acc + curr, 0);
+  labelSumOut.textContent = `${Math.abs(sumOut)}€`;
+
+  const sumInterest = movements
+    .filter((int) => int > 0)
+    .map((num) => (num * interest) / 100)
+    .filter((n) => n >= 1)
+    .reduce((acc, curr) => acc + curr, 0);
+  labelSumInterest.textContent = `${sumInterest}€`;
 };
 
-displayMovements(account1.movements);
+displayMovements(account1.movements, account1.interestRate);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -427,15 +446,15 @@ TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 
 // CHAINING
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-const eurToUsd = 1.1;
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const eurToUsd = 1.1;
 
-const totalDepositUSD = movements
-  .filter((num) => num > 0)
-  .map((mov, i, arr) => {
-    console.log(arr);
-    return mov * eurToUsd;
-  })
-  .reduce((acc, mov) => acc + mov, 0);
+// const totalDepositUSD = movements
+//   .filter((num) => num > 0)
+//   .map((mov, i, arr) => {
+//     console.log(arr);
+//     return mov * eurToUsd;
+//   })
+//   .reduce((acc, mov) => acc + mov, 0);
 
-console.log(totalDepositUSD);
+// console.log(totalDepositUSD);
