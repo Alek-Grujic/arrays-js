@@ -463,8 +463,16 @@ TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 
 // FIND
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const withdrawal = movements.find((mov) => mov < 0);
+// const withdrawal = movements.find((mov) => mov < 0);
 
-console.log(withdrawal);
+// console.log(withdrawal);
+
+const account = accounts.find((acc) => acc.owner === "Jessica Davis");
+
+console.log(account);
+
+for (let key of accounts) {
+  if (key.owner === "Jessica Davis") console.log(key);
+}
