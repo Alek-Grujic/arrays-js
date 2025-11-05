@@ -18,14 +18,12 @@ const account2 = {
   interestRate: 1.5,
   pin: 2222,
 };
-
 const account3 = {
   owner: "Steven Thomas Williams",
   movements: [200, -200, 340, -300, -20, 50, 400, -460],
   interestRate: 0.7,
   pin: 3333,
 };
-
 const account4 = {
   owner: "Sarah Smith",
   movements: [430, 1000, 700, 50, 90],
@@ -60,6 +58,19 @@ const inputTransferAmount = document.querySelector(".form__input--amount");
 const inputLoanAmount = document.querySelector(".form__input--loan-amount");
 const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
+
+function createUsernames(accs) {
+  accs.forEach(function (key) {
+    // console.log(key);
+    key.username = key.owner
+      .toLowerCase()
+      .split(" ")
+      .map((name) => name[0])
+      .join("");
+  });
+}
+
+createUsernames(accounts);
 
 const displayMovements = function (movements, interest) {
   containerMovements.innerHTML = "";
@@ -98,6 +109,22 @@ const displayMovements = function (movements, interest) {
 };
 
 displayMovements(account1.movements, account1.interestRate);
+
+// event handler
+
+btnLogin.addEventListener("click", function (e) {
+  e.preventDefault();
+  console.log("Login");
+
+  const findOwner = accounts.find((acc) => {
+    if (
+      acc.username === inputLoginUsername.value &&
+      acc.pin == inputLoginPin.value
+    )
+      console.log(acc);
+    console.log(typeof inputLoginPin.value);
+  });
+});
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -469,10 +496,10 @@ TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 
 // console.log(withdrawal);
 
-const account = accounts.find((acc) => acc.owner === "Jessica Davis");
+// const account = accounts.find((acc) => acc.owner === "Jessica Davis");
 
-console.log(account);
+// console.log(account);
 
-for (let key of accounts) {
-  if (key.owner === "Jessica Davis") console.log(key);
-}
+// for (let key of accounts) {
+//   if (key.owner === "Jessica Davis") console.log(key);
+// }
