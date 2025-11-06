@@ -112,18 +112,27 @@ displayMovements(account1.movements, account1.interestRate);
 
 // event handler
 
+let currentAccount;
+
 btnLogin.addEventListener("click", function (e) {
   e.preventDefault();
-  console.log("Login");
 
-  const findOwner = accounts.find((acc) => {
-    if (
-      acc.username === inputLoginUsername.value &&
-      acc.pin == inputLoginPin.value
-    )
-      console.log(acc);
-    console.log(typeof inputLoginPin.value);
-  });
+  // const findOwner = accounts.find((acc) => {
+  //   if (
+  //     acc.username === inputLoginUsername.value &&
+  //     acc.pin == inputLoginPin.value
+  //   )
+  //     console.log(acc);
+  // });
+
+  currentAccount = accounts.find(
+    (acc) => acc.username === inputLoginUsername.value
+  );
+  console.log(currentAccount);
+
+  if (currentAccount.pin === Number(inputLoginPin.value)) {
+    console.log("login");
+  }
 });
 
 /////////////////////////////////////////////////
