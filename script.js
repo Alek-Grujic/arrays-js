@@ -122,6 +122,19 @@ function displayBalance(accountBal) {
   labelBalance.textContent = `${accountBal.balance}€`;
 }
 
+// update UI function
+
+function updateUI(acc) {
+  // display movements and summary
+  displayMovements(acc.movements, acc.interestRate);
+
+  // display summary
+  displaySummary(acc);
+
+  // display balance
+  displayBalance(acc);
+}
+
 // event handler
 let currentAccount;
 
@@ -147,14 +160,7 @@ btnLogin.addEventListener("click", function (e) {
   // clear input fields
   inputLoginUsername.value = inputLoginPin.value = "";
 
-  // display movements and summary
-  displayMovements(currentAccount.movements, currentAccount.interestRate);
-
-  // display summary
-  displaySummary(currentAccount);
-
-  // display balance
-  displayBalance(currentAccount);
+  updateUI(currentAccount);
 });
 
 // transfer button functionalitie
@@ -174,7 +180,9 @@ btnTransfer.addEventListener("click", function (e) {
   ) {
     currentAccount.movements.push(-amount);
     recieverAcc.movements.push(amount);
+    updateUI(currentAccount);
   }
+  inputTransferAmount.value = inputTransferTo.value = "";
 });
 
 /////////////////////////////////////////////////
