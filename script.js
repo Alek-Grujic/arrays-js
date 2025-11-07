@@ -157,6 +157,7 @@ btnLogin.addEventListener("click", function (e) {
   displayBalance(currentAccount);
 });
 
+// transfer button functionalitie
 btnTransfer.addEventListener("click", function (e) {
   e.preventDefault();
 
@@ -166,11 +167,13 @@ btnTransfer.addEventListener("click", function (e) {
   );
 
   if (
+    recieverAcc &&
     amount > 0 &&
     amount <= currentAccount.balance &&
     recieverAcc?.username !== currentAccount.username
   ) {
-    console.log(recieverAcc.username, "===", currentAccount.username);
+    // testing
+    console.log(recieverAcc.username, currentAccount.username);
   }
 });
 
