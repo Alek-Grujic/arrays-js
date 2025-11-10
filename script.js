@@ -46,17 +46,13 @@ const containerApp = document.querySelector(".app");
 const containerMovements = document.querySelector(".movements");
 
 const btnLogin = document.querySelector(".login__btn");
-// ---------
 const btnTransfer = document.querySelector(".form__btn--transfer");
-// -----
 const btnLoan = document.querySelector(".form__btn--loan");
 const btnClose = document.querySelector(".form__btn--close");
 const btnSort = document.querySelector(".btn--sort");
 
-// ---------
 const inputLoginUsername = document.querySelector(".login__input--user");
 const inputLoginPin = document.querySelector(".login__input--pin");
-// -----
 const inputTransferTo = document.querySelector(".form__input--to");
 const inputTransferAmount = document.querySelector(".form__input--amount");
 
@@ -183,6 +179,28 @@ btnTransfer.addEventListener("click", function (e) {
     updateUI(currentAccount);
   }
   inputTransferAmount.value = inputTransferTo.value = "";
+});
+
+// closing account function
+btnClose.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  if (
+    currentAccount.username === inputCloseUsername.value &&
+    currentAccount.pin === Number(inputClosePin.value)
+  ) {
+    const deletedAcc = accounts.findIndex(
+      (acc) => acc.username === currentAccount.username
+    );
+    accounts.splice(deletedAcc, 1);
+
+    // hide UI
+    containerApp.style.opacity = 0;
+
+    inputCloseUsername.value = inputClosePin.value = "";
+
+    labelWelcome.textContent = "Log in to get started";
+  }
 });
 
 /////////////////////////////////////////////////
