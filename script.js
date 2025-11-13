@@ -580,3 +580,17 @@ TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 // for (let key of accounts) {
 //   if (key.owner === "Jessica Davis") console.log(key);
 // }
+
+// FINDLAST AND FINDLASTINDEX
+
+const movements = [200, 450, -400, 3000, -650, -130, 2500, 70, 1300];
+
+const largeMov = movements.findLastIndex((mov) => mov >= 2000);
+
+console.log(largeMov);
+
+let formula = movements.length - largeMov - 1;
+
+console.log(
+  `Your latest large movement was (${movements[largeMov]}€) ${formula} movements ago `
+);
