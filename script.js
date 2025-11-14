@@ -616,9 +616,48 @@ TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 
 // EVERY
 
-const movements = [200, 450, -400, 3000, -650, -130, 2500, 70, 1300];
-const deposit = (mov) => mov > 0;
+// const movements = [200, 450, -400, 3000, -650, -130, 2500, 70, 1300];
 
-console.log(movements.some(deposit));
-console.log(movements.every(deposit));
-console.log(movements.filter(deposit));
+// const deposit = (mov) => mov > 0;
+
+// console.log(movements.some(deposit));
+// console.log(movements.every(deposit));
+// console.log(movements.filter(deposit));
+
+// FLAT AND FLATMAP
+
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+
+console.log(arr.flat());
+
+// depper level
+
+const deepArr = [[[1, 2], 3], [[4, 5], 6], 7];
+
+console.log(deepArr.flat());
+console.log(deepArr.flat(2));
+
+// accounts flat and flatMap
+
+const accountsMovements = accounts.map((acc) => acc.movements);
+console.log(accountsMovements);
+const allMovements = accountsMovements.flat();
+console.log(allMovements);
+const overallBalance = allMovements.reduce((acc, curr) => acc + curr, 0);
+console.log(overallBalance);
+
+// chaining
+
+const overallBalanceChain = accounts
+  .map((acc) => acc.movements)
+  .flat()
+  .reduce((acc, curr) => acc + curr, 0);
+
+console.log(overallBalanceChain);
+
+// flatMap
+
+const overallBalanceFlatMap = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce((acc, curr) => acc + curr, 0);
+console.log(overallBalanceFlatMap);
