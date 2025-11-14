@@ -181,6 +181,25 @@ btnTransfer.addEventListener("click", function (e) {
   inputTransferAmount.value = inputTransferTo.value = "";
 });
 
+// request loan functionalitie
+
+btnLoan.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+
+  if (
+    amount > 0 &&
+    currentAccount.movements.some((mov) => mov >= amount * 0.1)
+  ) {
+    currentAccount.movements.push(amount);
+
+    updateUI(currentAccount);
+  }
+
+  inputLoanAmount.value = "";
+});
+
 // closing account function
 btnClose.addEventListener("click", function (e) {
   e.preventDefault();
@@ -583,14 +602,14 @@ TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 
 // FINDLAST AND FINDLASTINDEX
 
-const movements = [200, 450, -400, 3000, -650, -130, 2500, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 2500, 70, 1300];
 
-const largeMov = movements.findLastIndex((mov) => mov >= 2000);
+// const largeMov = movements.findLastIndex((mov) => mov >= 2000);
 
-console.log(largeMov);
+// console.log(largeMov);
 
-let formula = movements.length - largeMov - 1;
+// let formula = movements.length - largeMov - 1;
 
-console.log(
-  `Your latest large movement was (${movements[largeMov]}€) ${formula} movements ago `
-);
+// console.log(
+//   `Your latest large movement was (${movements[largeMov]}€) ${formula} movements ago `
+// );
