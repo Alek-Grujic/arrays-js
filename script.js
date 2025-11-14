@@ -613,3 +613,12 @@ TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 // console.log(
 //   `Your latest large movement was (${movements[largeMov]}€) ${formula} movements ago `
 // );
+
+// EVERY
+
+const movements = [200, 450, -400, 3000, -650, -130, 2500, 70, 1300];
+const deposit = (mov) => mov > 0;
+
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
