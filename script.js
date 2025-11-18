@@ -807,3 +807,10 @@ let swimmingAdjacent = [
 ];
 
 console.log(swimmingAdjacent);
+
+console.log("------------");
+
+// 6. task
+// Do all the breeds have an average weight of 10kg or more? Log to the console whether "true" or "false".
+
+console.log(breeds.every((wh) => wh.averageWeight >= 10));
