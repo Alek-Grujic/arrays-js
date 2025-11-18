@@ -827,10 +827,28 @@ console.log("------------");
 // Bonus task
 // What's the average weight of the heaviest breed that likes to fetch? HINT: Use the "Math.max" method along with the ... operator.
 
-let breedLikeFetch = breeds
+// let breedLikeFetch = breeds
+//   .filter((fetch) => fetch.activities.includes("fetch"))
+//   .reduce((acc, curr) => (acc.averageWeight > curr.averageWeight ? acc : curr));
+
+// console.log(
+//   `${breedLikeFetch.breed} is heaviest dog that likes to fetch. His average weight is - ${breedLikeFetch.averageWeight}kg`
+// );
+
+// Math.max version
+
+let heaviestBreed = breeds
   .filter((fetch) => fetch.activities.includes("fetch"))
-  .reduce((acc, curr) => (acc.averageWeight > curr.averageWeight ? acc : curr));
+  .map((hw) => hw.averageWeight);
+
+console.log(`${Math.max(...heaviestBreed)}kg`);
+
+// without variable
 
 console.log(
-  `${breedLikeFetch.breed} is heaviest dog that likes to fetch. His average weight is - ${breedLikeFetch.averageWeight}kg`
+  `${Math.max(
+    ...breeds
+      .filter((fetch) => fetch.activities.includes("fetch"))
+      .map((hw) => hw.averageWeight)
+  )}kg`
 );
