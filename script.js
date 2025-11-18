@@ -761,3 +761,11 @@ dogBothActivities = breeds.find(
 ).breed;
 
 console.log(`Dog that loves running and fetch is ${dogBothActivities}`);
+
+console.log("------------");
+
+// 3. task
+
+let allActivities = breeds.flatMap((breedAct) => breedAct.activities);
+
+console.log(allActivities);
