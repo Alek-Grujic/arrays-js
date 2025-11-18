@@ -814,3 +814,10 @@ console.log("------------");
 // Do all the breeds have an average weight of 10kg or more? Log to the console whether "true" or "false".
 
 console.log(breeds.every((wh) => wh.averageWeight >= 10));
+
+console.log("------------");
+
+// 7. task
+// Are there any breeds that are "active"? "Active" means that the dog has 3 or more activities. Log to the console whether "true" or "false".
+
+console.log(breeds.some((active) => active.activities.length >= 3));
