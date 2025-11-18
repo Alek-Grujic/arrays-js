@@ -769,3 +769,11 @@ console.log("------------");
 let allActivities = breeds.flatMap((breedAct) => breedAct.activities);
 
 console.log(allActivities);
+
+console.log("------------");
+
+// 4. task
+
+let uniqueActivities = [...new Set(allActivities)];
+
+console.log(uniqeActivities);
