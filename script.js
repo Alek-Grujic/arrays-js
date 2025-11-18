@@ -776,4 +776,21 @@ console.log("------------");
 
 let uniqueActivities = [...new Set(allActivities)];
 
-console.log(uniqeActivities);
+console.log(uniqueActivities);
+
+console.log("------------");
+
+// 5. task
+//  Many dog breeds like to swim. What other activities do these dogs like? Store all the OTHER activities these breeds like to do, in a unique array called "swimmingAdjacent".
+
+let breedsLikeSwimming = breeds
+  .filter((str) => str.activities.includes("swimming"))
+  .flatMap((other) => other.activities);
+
+let swimmingAdjacent = [...new Set(breedsLikeSwimming)];
+
+let indexOfSwimming = [...swimmingAdjacent].indexOf("swimming");
+
+swimmingAdjacent.splice(indexOfSwimming, 1);
+
+console.log(swimmingAdjacent);
