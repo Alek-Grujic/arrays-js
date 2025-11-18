@@ -735,3 +735,29 @@ console.log(huskyWeight);
 huskyWeight = breeds.find((hus) => hus.breed === "Husky").averageWeight;
 
 console.log(huskyWeight);
+
+console.log("------------");
+
+// 2. task
+
+let dogBothActivities;
+
+breeds.forEach((value) => {
+  if (
+    value.activities.includes("running") &&
+    value.activities.includes("fetch")
+  ) {
+    dogBothActivities = `${value.breed} is only dog that loves fetch and running.`;
+  }
+});
+
+console.log(dogBothActivities);
+
+// better version - find
+
+dogBothActivities = breeds.find(
+  (breed) =>
+    breed.activities.includes("running") && breed.activities.includes("fetch")
+).breed;
+
+console.log(`Dog that loves running and fetch is ${dogBothActivities}`);
