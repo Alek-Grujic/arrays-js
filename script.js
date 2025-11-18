@@ -821,3 +821,16 @@ console.log("------------");
 // Are there any breeds that are "active"? "Active" means that the dog has 3 or more activities. Log to the console whether "true" or "false".
 
 console.log(breeds.some((active) => active.activities.length >= 3));
+
+console.log("------------");
+
+// Bonus task
+// What's the average weight of the heaviest breed that likes to fetch? HINT: Use the "Math.max" method along with the ... operator.
+
+let breedLikeFetch = breeds
+  .filter((fetch) => fetch.activities.includes("fetch"))
+  .reduce((acc, curr) => (acc.averageWeight > curr.averageWeight ? acc : curr));
+
+console.log(
+  `${breedLikeFetch.breed} is heaviest dog that likes to fetch. His average weight is - ${breedLikeFetch.averageWeight}kg`
+);
