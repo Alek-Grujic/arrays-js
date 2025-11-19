@@ -683,172 +683,180 @@ BONUS: What's the average weight of the heaviest breed that likes to fetch? HINT
 TEST DATA:
 */
 
-const breeds = [
-  {
-    breed: "German Shepherd",
-    averageWeight: 32,
-    activities: ["fetch", "swimming"],
-  },
-  {
-    breed: "Dalmatian",
-    averageWeight: 24,
-    activities: ["running", "fetch", "agility"],
-  },
-  {
-    breed: "Labrador",
-    averageWeight: 28,
-    activities: ["swimming", "fetch"],
-  },
-  {
-    breed: "Beagle",
-    averageWeight: 12,
-    activities: ["digging", "fetch"],
-  },
-  {
-    breed: "Husky",
-    averageWeight: 26,
-    activities: ["running", "agility", "swimming"],
-  },
-  {
-    breed: "Bulldog",
-    averageWeight: 36,
-    activities: ["sleeping"],
-  },
-  {
-    breed: "Poodle",
-    averageWeight: 18,
-    activities: ["agility", "fetch"],
-  },
-];
+// const breeds = [
+//   {
+//     breed: "German Shepherd",
+//     averageWeight: 32,
+//     activities: ["fetch", "swimming"],
+//   },
+//   {
+//     breed: "Dalmatian",
+//     averageWeight: 24,
+//     activities: ["running", "fetch", "agility"],
+//   },
+//   {
+//     breed: "Labrador",
+//     averageWeight: 28,
+//     activities: ["swimming", "fetch"],
+//   },
+//   {
+//     breed: "Beagle",
+//     averageWeight: 12,
+//     activities: ["digging", "fetch"],
+//   },
+//   {
+//     breed: "Husky",
+//     averageWeight: 26,
+//     activities: ["running", "agility", "swimming"],
+//   },
+//   {
+//     breed: "Bulldog",
+//     averageWeight: 36,
+//     activities: ["sleeping"],
+//   },
+//   {
+//     breed: "Poodle",
+//     averageWeight: 18,
+//     activities: ["agility", "fetch"],
+//   },
+// ];
 
-// 1. task
+// // 1. task
 
-let huskyWeight = breeds
-  .filter((hus) => hus.breed === "Husky")
-  .map((weight) => weight.averageWeight)
-  .join();
+// let huskyWeight = breeds
+//   .filter((hus) => hus.breed === "Husky")
+//   .map((weight) => weight.averageWeight)
+//   .join();
 
-console.log(huskyWeight);
+// console.log(huskyWeight);
 
-// better version - find
+// // better version - find
 
-huskyWeight = breeds.find((hus) => hus.breed === "Husky").averageWeight;
+// huskyWeight = breeds.find((hus) => hus.breed === "Husky").averageWeight;
 
-console.log(huskyWeight);
+// console.log(huskyWeight);
 
-console.log("------------");
+// console.log("------------");
 
-// 2. task
+// // 2. task
 
-let dogBothActivities;
+// let dogBothActivities;
 
-breeds.forEach((value) => {
-  if (
-    value.activities.includes("running") &&
-    value.activities.includes("fetch")
-  ) {
-    dogBothActivities = `${value.breed} is only dog that loves fetch and running.`;
-  }
-});
+// breeds.forEach((value) => {
+//   if (
+//     value.activities.includes("running") &&
+//     value.activities.includes("fetch")
+//   ) {
+//     dogBothActivities = `${value.breed} is only dog that loves fetch and running.`;
+//   }
+// });
 
-console.log(dogBothActivities);
+// console.log(dogBothActivities);
 
-// better version - find
+// // better version - find
 
-dogBothActivities = breeds.find(
-  (breed) =>
-    breed.activities.includes("running") && breed.activities.includes("fetch")
-).breed;
+// dogBothActivities = breeds.find(
+//   (breed) =>
+//     breed.activities.includes("running") && breed.activities.includes("fetch")
+// ).breed;
 
-console.log(`Dog that loves running and fetch is ${dogBothActivities}`);
+// console.log(`Dog that loves running and fetch is ${dogBothActivities}`);
 
-console.log("------------");
+// console.log("------------");
 
-// 3. task
+// // 3. task
 
-let allActivities = breeds.flatMap((breedAct) => breedAct.activities);
+// let allActivities = breeds.flatMap((breedAct) => breedAct.activities);
 
-console.log(allActivities);
+// console.log(allActivities);
 
-console.log("------------");
+// console.log("------------");
 
-// 4. task
+// // 4. task
 
-let uniqueActivities = [...new Set(allActivities)];
+// let uniqueActivities = [...new Set(allActivities)];
 
-console.log(uniqueActivities);
+// console.log(uniqueActivities);
 
-console.log("------------");
+// console.log("------------");
 
-// 5. task
-//  Many dog breeds like to swim. What other activities do these dogs like? Store all the OTHER activities these breeds like to do, in a unique array called "swimmingAdjacent".
+// // 5. task
+// //  Many dog breeds like to swim. What other activities do these dogs like? Store all the OTHER activities these breeds like to do, in a unique array called "swimmingAdjacent".
 
-// let breedsLikeSwimming = breeds
-//   .filter((str) => str.activities.includes("swimming"))
-//   .flatMap((other) => other.activities);
+// // let breedsLikeSwimming = breeds
+// //   .filter((str) => str.activities.includes("swimming"))
+// //   .flatMap((other) => other.activities);
 
-// let swimmingAdjacent = [...new Set(breedsLikeSwimming)];
+// // let swimmingAdjacent = [...new Set(breedsLikeSwimming)];
 
-// let indexOfSwimming = [...swimmingAdjacent].indexOf("swimming");
+// // let indexOfSwimming = [...swimmingAdjacent].indexOf("swimming");
 
-// swimmingAdjacent.splice(indexOfSwimming, 1);
+// // swimmingAdjacent.splice(indexOfSwimming, 1);
+
+// // console.log(swimmingAdjacent);
+
+// // better version
+
+// let swimmingAdjacent = [
+//   ...new Set(
+//     breeds
+//       .filter((str) => str.activities.includes("swimming"))
+//       .flatMap((other) => other.activities)
+//       .filter((swimm) => swimm !== "swimming")
+//   ),
+// ];
 
 // console.log(swimmingAdjacent);
 
-// better version
+// console.log("------------");
 
-let swimmingAdjacent = [
-  ...new Set(
-    breeds
-      .filter((str) => str.activities.includes("swimming"))
-      .flatMap((other) => other.activities)
-      .filter((swimm) => swimm !== "swimming")
-  ),
-];
+// // 6. task
+// // Do all the breeds have an average weight of 10kg or more? Log to the console whether "true" or "false".
 
-console.log(swimmingAdjacent);
+// console.log(breeds.every((wh) => wh.averageWeight >= 10));
 
-console.log("------------");
+// console.log("------------");
 
-// 6. task
-// Do all the breeds have an average weight of 10kg or more? Log to the console whether "true" or "false".
+// // 7. task
+// // Are there any breeds that are "active"? "Active" means that the dog has 3 or more activities. Log to the console whether "true" or "false".
 
-console.log(breeds.every((wh) => wh.averageWeight >= 10));
+// console.log(breeds.some((active) => active.activities.length >= 3));
 
-console.log("------------");
+// console.log("------------");
 
-// 7. task
-// Are there any breeds that are "active"? "Active" means that the dog has 3 or more activities. Log to the console whether "true" or "false".
+// // Bonus task
+// // What's the average weight of the heaviest breed that likes to fetch? HINT: Use the "Math.max" method along with the ... operator.
 
-console.log(breeds.some((active) => active.activities.length >= 3));
+// // let breedLikeFetch = breeds
+// //   .filter((fetch) => fetch.activities.includes("fetch"))
+// //   .reduce((acc, curr) => (acc.averageWeight > curr.averageWeight ? acc : curr));
 
-console.log("------------");
+// // console.log(
+// //   `${breedLikeFetch.breed} is heaviest dog that likes to fetch. His average weight is - ${breedLikeFetch.averageWeight}kg`
+// // );
 
-// Bonus task
-// What's the average weight of the heaviest breed that likes to fetch? HINT: Use the "Math.max" method along with the ... operator.
+// // Math.max version
 
-// let breedLikeFetch = breeds
+// let heaviestBreed = breeds
 //   .filter((fetch) => fetch.activities.includes("fetch"))
-//   .reduce((acc, curr) => (acc.averageWeight > curr.averageWeight ? acc : curr));
+//   .map((hw) => hw.averageWeight);
+
+// console.log(`${Math.max(...heaviestBreed)}kg`);
+
+// // without variable
 
 // console.log(
-//   `${breedLikeFetch.breed} is heaviest dog that likes to fetch. His average weight is - ${breedLikeFetch.averageWeight}kg`
+//   `${Math.max(
+//     ...breeds
+//       .filter((fetch) => fetch.activities.includes("fetch"))
+//       .map((hw) => hw.averageWeight)
+//   )}kg`
 // );
 
-// Math.max version
+// --------------------------------------------------------------
 
-let heaviestBreed = breeds
-  .filter((fetch) => fetch.activities.includes("fetch"))
-  .map((hw) => hw.averageWeight);
+// SORT
 
-console.log(`${Math.max(...heaviestBreed)}kg`);
+const owners = ["Jonas ", "Zack", "Adam", "Martha"];
 
-// without variable
-
-console.log(
-  `${Math.max(
-    ...breeds
-      .filter((fetch) => fetch.activities.includes("fetch"))
-      .map((hw) => hw.averageWeight)
-  )}kg`
-);
+console.log(owners.sort());
