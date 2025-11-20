@@ -74,9 +74,12 @@ function createUsernames(accs) {
 createUsernames(accounts);
 
 // display movements function
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = "";
-  movements.forEach(function (mov, i) {
+
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? "deposit" : "withdrawal";
 
     const html = `
@@ -220,6 +223,17 @@ btnClose.addEventListener("click", function (e) {
 
     labelWelcome.textContent = "Log in to get started";
   }
+});
+
+// sort button
+
+let sorted = false;
+btnSort.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  displayMovements(currentAccount.movements, !sorted);
+
+  sorted = !sorted;
 });
 
 /////////////////////////////////////////////////
@@ -860,3 +874,13 @@ TEST DATA:
 const owners = ["Jonas ", "Zack", "Adam", "Martha"];
 
 console.log(owners.sort());
+
+const movements = [200, 450, -400, 3000, -650, -130, 2500, 70, 1300];
+
+movements.sort();
+
+console.log(movements);
+
+const arr = [...movements].sort((a, b) => a - b);
+
+console.log(arr);
