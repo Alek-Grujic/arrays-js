@@ -871,16 +871,65 @@ TEST DATA:
 
 // SORT
 
-const owners = ["Jonas ", "Zack", "Adam", "Martha"];
+// const owners = ["Jonas ", "Zack", "Adam", "Martha"];
 
-console.log(owners.sort());
+// console.log(owners.sort());
+
+// const movements = [200, 450, -400, 3000, -650, -130, 2500, 70, 1300];
+
+// movements.sort();
+
+// console.log(movements);
+
+// const arr = [...movements].sort((a, b) => a - b);
+
+// console.log(arr);
+
+// OBJECTGROUPBY
 
 const movements = [200, 450, -400, 3000, -650, -130, 2500, 70, 1300];
 
-movements.sort();
+const grouped = Object.groupBy(movements, (mov) =>
+  mov > 0 ? "Deposit" : "Withdrawal"
+);
 
-console.log(movements);
+console.log(grouped);
 
-const arr = [...movements].sort((a, b) => a - b);
+// exercise 1.
+const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-console.log(arr);
+const oddsAndEven = Object.groupBy(nums, (num) =>
+  num % 2 === 0 ? "even" : "odds"
+);
+
+console.log(oddsAndEven);
+
+// exercise 2.
+const people = [
+  { name: "Ana", age: 20 },
+  { name: "Marko", age: 20 },
+  { name: "Nikola", age: 30 },
+  { name: "Sara", age: 25 },
+  { name: "Dunja", age: 30 },
+];
+
+const age = Object.groupBy(people, (age) => age.age);
+
+console.log(age);
+
+// exercise 3.
+const dogs = [
+  { name: "Rex", age: 5 },
+  { name: "Bella", age: 1 },
+  { name: "Max", age: 3 },
+  { name: "Luna", age: 1 },
+  { name: "Rocky", age: 0.5 },
+];
+
+const statusDogs = Object.groupBy(dogs, (statusDog) => {
+  if (statusDog.age > 3) return "adult";
+  if (statusDog.age >= 1 && statusDog.age <= 3) return "young";
+  if (statusDog.age < 1) return "puppy";
+});
+
+console.log(statusDogs);
