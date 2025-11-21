@@ -933,3 +933,19 @@ const statusDogs = Object.groupBy(dogs, (statusDog) => {
 });
 
 console.log(statusDogs);
+
+// FILL
+
+let x = [1, 2, 3];
+
+x.fill(1);
+
+console.log(x);
+
+x = new Array(5).fill(1);
+
+console.log(x);
+
+x = new Array(5).fill(0).map((_, i) => i + 1);
+
+console.log(x);
