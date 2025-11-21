@@ -955,3 +955,11 @@ console.log(x);
 let y = Array.from({ length: 10 }, (_, i) => Math.trunc(Math.random() * 10));
 
 console.log(y);
+
+labelBalance.addEventListener("click", function () {
+  const movementUI = Array.from(
+    document.querySelectorAll(".movements__value"),
+    (el) => el.textContent.replace("€", "")
+  );
+  console.log(movementUI);
+});
