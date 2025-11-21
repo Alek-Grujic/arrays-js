@@ -949,3 +949,9 @@ console.log(x);
 x = new Array(5).fill(0).map((_, i) => i + 1);
 
 console.log(x);
+
+// ARRAY.FROM
+
+let y = Array.from({ length: 10 }, (_, i) => Math.trunc(Math.random() * 10));
+
+console.log(y);
