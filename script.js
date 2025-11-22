@@ -887,95 +887,110 @@ TEST DATA:
 
 // OBJECTGROUPBY
 
-const movements = [200, 450, -400, 3000, -650, -130, 2500, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 2500, 70, 1300];
 
-const grouped = Object.groupBy(movements, (mov) =>
-  mov > 0 ? "Deposit" : "Withdrawal"
-);
+// const grouped = Object.groupBy(movements, (mov) =>
+//   mov > 0 ? "Deposit" : "Withdrawal"
+// );
 
-console.log(grouped);
+// console.log(grouped);
 
-// exercise 1.
-const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// // exercise 1.
+// const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-const oddsAndEven = Object.groupBy(nums, (num) =>
-  num % 2 === 0 ? "even" : "odds"
-);
+// const oddsAndEven = Object.groupBy(nums, (num) =>
+//   num % 2 === 0 ? "even" : "odds"
+// );
 
-console.log(oddsAndEven);
+// console.log(oddsAndEven);
 
-// exercise 2.
-const people = [
-  { name: "Ana", age: 20 },
-  { name: "Marko", age: 20 },
-  { name: "Nikola", age: 30 },
-  { name: "Sara", age: 25 },
-  { name: "Dunja", age: 30 },
-];
+// // exercise 2.
+// const people = [
+//   { name: "Ana", age: 20 },
+//   { name: "Marko", age: 20 },
+//   { name: "Nikola", age: 30 },
+//   { name: "Sara", age: 25 },
+//   { name: "Dunja", age: 30 },
+// ];
 
-const age = Object.groupBy(people, (age) => age.age);
+// const age = Object.groupBy(people, (age) => age.age);
 
-console.log(age);
+// console.log(age);
 
-// exercise 3.
-const dogs = [
-  { name: "Rex", age: 5 },
-  { name: "Bella", age: 1 },
-  { name: "Max", age: 3 },
-  { name: "Luna", age: 1 },
-  { name: "Rocky", age: 0.5 },
-];
+// // exercise 3.
+// const dogs = [
+//   { name: "Rex", age: 5 },
+//   { name: "Bella", age: 1 },
+//   { name: "Max", age: 3 },
+//   { name: "Luna", age: 1 },
+//   { name: "Rocky", age: 0.5 },
+// ];
 
-const statusDogs = Object.groupBy(dogs, (statusDog) => {
-  if (statusDog.age > 3) return "adult";
-  if (statusDog.age >= 1 && statusDog.age <= 3) return "young";
-  if (statusDog.age < 1) return "puppy";
-});
+// const statusDogs = Object.groupBy(dogs, (statusDog) => {
+//   if (statusDog.age > 3) return "adult";
+//   if (statusDog.age >= 1 && statusDog.age <= 3) return "young";
+//   if (statusDog.age < 1) return "puppy";
+// });
 
-console.log(statusDogs);
+// console.log(statusDogs);
 
-// FILL
+// // FILL
 
-let x = [1, 2, 3];
+// let x = [1, 2, 3];
 
-x.fill(1);
+// x.fill(1);
 
-console.log(x);
+// console.log(x);
 
-x = new Array(5).fill(1);
+// x = new Array(5).fill(1);
 
-console.log(x);
+// console.log(x);
 
-x = new Array(5).fill(0).map((_, i) => i + 1);
+// x = new Array(5).fill(0).map((_, i) => i + 1);
 
-console.log(x);
+// console.log(x);
 
-// ARRAY.FROM
+// // ARRAY.FROM
 
-let y = Array.from({ length: 10 }, (_, i) => Math.trunc(Math.random() * 10));
+// let y = Array.from({ length: 10 }, (_, i) => Math.trunc(Math.random() * 10));
 
-console.log(y);
+// console.log(y);
 
-labelBalance.addEventListener("click", function () {
-  const movementUI = Array.from(
-    document.querySelectorAll(".movements__value"),
-    (el) => el.textContent.replace("€", "")
-  );
-  console.log(movementUI);
-});
+// labelBalance.addEventListener("click", function () {
+//   const movementUI = Array.from(
+//     document.querySelectorAll(".movements__value"),
+//     (el) => el.textContent.replace("€", "")
+//   );
+//   console.log(movementUI);
+// });
 
-// NON-DESTRUCTIVE ALTERNATIVES
+// // NON-DESTRUCTIVE ALTERNATIVES
 
-const arr = [10, 20, 30, 40];
+// const arr = [10, 20, 30, 40];
 
-const updated = arr.with(2, 999);
+// const updated = arr.with(2, 999);
 
-console.log(updated); // [10, 20, 999, 40]
-console.log(arr); // [10, 20, 30, 40]  ← original ostaje isti
+// console.log(updated); // [10, 20, 999, 40]
+// console.log(arr); // [10, 20, 30, 40]  ← original ostaje isti
 
-// changing last element
-let numbers = [1, 2, 3, 4, 5];
+// // changing last element
+// let numbers = [1, 2, 3, 4, 5];
 
-const lastChanged = numbers.with(numbers.length - 1, 999);
+// const lastChanged = numbers.with(numbers.length - 1, 999);
 
-console.log(lastChanged);
+// console.log(lastChanged);
+
+// ---------------------------------------------------
+// small chalanges
+
+// 1.
+
+// let sumOfDeposits1000 = accounts
+//   .flatMap((acc) => acc.movements)
+//   .filter((acc) => acc >= 1000).length;
+
+let sumOfDeposits1000 = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce((count, curr) => (curr >= 1000 ? ++count : count), 0);
+
+console.log(sumOfDeposits1000);
