@@ -963,3 +963,19 @@ labelBalance.addEventListener("click", function () {
   );
   console.log(movementUI);
 });
+
+// NON-DESTRUCTIVE ALTERNATIVES
+
+const arr = [10, 20, 30, 40];
+
+const updated = arr.with(2, 999);
+
+console.log(updated); // [10, 20, 999, 40]
+console.log(arr); // [10, 20, 30, 40]  ← original ostaje isti
+
+// changing last element
+let numbers = [1, 2, 3, 4, 5];
+
+const lastChanged = numbers.with(numbers.length - 1, 999);
+
+console.log(lastChanged);
