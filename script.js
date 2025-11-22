@@ -1014,17 +1014,17 @@ console.log(deposits, withdrawals);
 
 // this is a nice title -> This Is a Nice Title
 const convertTitleCase = function (title) {
+  const capitilazed = (str) => str[0].toUpperCase() + str.slice(1);
+
   const exceptions = ["a", "an", "the", "but", "or", "on", "in", "with", "and"];
 
   const titleCase = title
     .toLowerCase()
     .split(" ")
-    .map((word) =>
-      exceptions.includes(word) ? word : word[0].toUpperCase() + word.slice(1)
-    )
+    .map((word) => (exceptions.includes(word) ? word : capitilazed(word)))
     .join(" ");
 
-  return titleCase;
+  return capitilazed(titleCase);
 };
 
 console.log(convertTitleCase("this is a nice title"));
