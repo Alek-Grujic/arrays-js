@@ -1128,19 +1128,38 @@ console.log("---------------------");
 
 // 3. Create an array containing all owners of dogs who eat too much (ownersTooMuch) and an array with all owners of dogs who eat too little (ownersTooLittle).
 
-let ownersTooMuch = [];
-let ownersTooLittle = [];
+// let ownersTooMuch = [];
+// let ownersTooLittle = [];
 
-dogs.forEach((dog) => {
-  let resOfCalc = eatingFoodCalc(dog);
+// dogs.forEach((dog) => {
+//   let resOfCalc = eatingFoodCalc(dog);
 
-  if (resOfCalc === "Eating too much") {
-    dog.owners.forEach((dogg) => ownersTooMuch.push(dogg));
-  }
-  if (resOfCalc === "Eating too little") {
-    dog.owners.forEach((dogg) => ownersTooLittle.push(dogg));
-  }
-});
+//   if (resOfCalc === "Eating too much") {
+//     dog.owners.forEach((dogg) => ownersTooMuch.push(dogg));
+//   }
+//   if (resOfCalc === "Eating too little") {
+//     dog.owners.forEach((dogg) => ownersTooLittle.push(dogg));
+//   }
+// });
 
-console.log("ownersToMuch array -", ownersTooMuch);
-console.log("ownersToLittle array -", ownersTooLittle);
+// console.log("ownersToMuch array -", ownersTooMuch);
+// console.log("ownersToLittle array -", ownersTooLittle);
+
+// reduce try
+
+let { ownersTooMuch, ownersTooLittle } = dogs.reduce(
+  (acc, curr) => {
+    let resOfCalc = eatingFoodCalc(curr);
+    if (resOfCalc === "Eating too much") {
+      curr.owners.forEach((dogg) => acc.ownersTooMuch.push(dogg));
+    }
+    if (resOfCalc === "Eating too little") {
+      curr.owners.forEach((dogg) => acc.ownersTooLittle.push(dogg));
+    }
+    return acc;
+  },
+  { ownersTooMuch: [], ownersTooLittle: [] }
+);
+
+console.log(ownersTooMuch);
+console.log(ownersTooLittle);
