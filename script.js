@@ -1188,3 +1188,12 @@ console.log("---------------------");
 // 6. Log to the console whether ALL of the dogs are eating an OKAY amount of food (just true or false)
 
 console.log(dogs.every((dog) => eatingFoodCalc(dog) === "Eating okay"));
+
+console.log("---------------------");
+
+// -------------------------------------
+
+// 7. Create an array containing the dogs that are eating an OKAY amount of food (try to reuse the condition used in 6.)
+
+let filteredOkay = dogs.filter((dog) => eatingFoodCalc(dog) === "Eating okay");
+console.log(filteredOkay);
