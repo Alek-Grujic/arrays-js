@@ -1196,4 +1196,28 @@ console.log("---------------------");
 // 7. Create an array containing the dogs that are eating an OKAY amount of food (try to reuse the condition used in 6.)
 
 let filteredOkay = dogs.filter((dog) => eatingFoodCalc(dog) === "Eating okay");
+
 console.log(filteredOkay);
+
+console.log("---------------------");
+
+// -------------------------------------
+
+// 8. Group the dogs into the following 3 groups: 'exact', 'too-much' and 'too-little', based on whether they are eating too much, too little or the exact amount of food, based on the recommended food portion.
+
+const dogsWithoutOkay = dogs.filter((dog) => {
+  const status = eatingFoodCalc(dog);
+  const isExact = dog.curFood === Math.trunc(dog.recFood);
+
+  return isExact || status !== "Eating okay";
+});
+
+const threeGroups = Object.groupBy(dogsWithoutOkay, (statusDog) => {
+  let eatingFoodCalcVar = eatingFoodCalc(statusDog);
+
+  if (statusDog.curFood === Math.trunc(statusDog.recFood)) return "exact";
+  if (eatingFoodCalcVar === "Eating too much") return "too-much";
+  if (eatingFoodCalcVar === "Eating too little") return "too-little";
+});
+
+console.log(threeGroups);
