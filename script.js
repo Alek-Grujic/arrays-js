@@ -1109,7 +1109,7 @@ function eatingFoodCalc(ownersDog) {
   const upperBound = ownersDog.recFood * 1.1;
 
   if (ownersDog.curFood > lowerBound && ownersDog.curFood < upperBound) {
-    return `Eating fine`;
+    return `Eating okay`;
   } else if (ownersDog.curFood < lowerBound) {
     return `Eating too little`;
   } else {
@@ -1180,3 +1180,11 @@ console.log("---------------------");
 // 5. Log to the console whether there is ANY dog eating EXACTLY the amount of food that is recommended (just true or false)
 
 console.log(dogs.some((dog) => dog.curFood === Math.trunc(dog.recFood)));
+
+console.log("---------------------");
+
+// -------------------------------------
+
+// 6. Log to the console whether ALL of the dogs are eating an OKAY amount of food (just true or false)
+
+console.log(dogs.every((dog) => eatingFoodCalc(dog) === "Eating okay"));
