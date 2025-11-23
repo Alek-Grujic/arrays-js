@@ -1059,13 +1059,27 @@ HINT 1: Use many different tools to solve these challenges, you can use the summ
 HINT 2: Being within a range 10% above and below the recommended portion means: current > (recommended * 0.90) && current < (recommended * 1.10). Basically, the current portion should be between 90% and 110% of the recommended portion.
 
 TEST DATA:
+
+*/
+
 const dogs = [
-{ weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
-{ weight: 8, curFood: 200, owners: ['Matilda'] },
-{ weight: 13, curFood: 275, owners: ['Sarah', 'John', 'Leo'] },
-{ weight: 18, curFood: 244, owners: ['Joe'] },
-{ weight: 32, curFood: 340, owners: ['Michael'] },
+  { weight: 22, curFood: 250, owners: ["Alice", "Bob"] },
+  { weight: 8, curFood: 200, owners: ["Matilda"] },
+  { weight: 13, curFood: 275, owners: ["Sarah", "John", "Leo"] },
+  { weight: 18, curFood: 244, owners: ["Joe"] },
+  { weight: 32, curFood: 340, owners: ["Michael"] },
 ];
 
-GOOD LUCK 😀
-*/
+// const recommendedFood = dogs[0].weight ** 0.75 * 28;
+
+// 1. Loop over the array containing dog objects, and for each dog, calculate the recommended food portion (recFood) and add it to the object as a new property. Do NOT create a new array, simply loop over the array (We never did this before, so think about how you can do this without creating a new array).
+
+function recommendedFood(food) {
+  return food ** 0.75 * 28;
+}
+
+dogs.forEach((dog) => {
+  dog.recFood = Number(recommendedFood(dog.weight).toFixed(2));
+});
+
+console.log(dogs);
