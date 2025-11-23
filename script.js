@@ -1092,15 +1092,25 @@ console.log("---------------------");
 
 let sarahsDog = dogs.find((dog) => dog.owners.includes("Sarah"));
 
-if (
-  sarahsDog.curFood > sarahsDog.recFood * 0.9 &&
-  sarahsDog.curFood < sarahsDog.recFood * 1.1
-) {
-  console.log("Eating fine");
-} else if (sarahsDog.curFood < sarahsDog.recFood * 0.9) {
-  console.log("Eating too little");
-} else {
-  console.log("Eating too much");
+function eatingFoodCalc(ownersDog) {
+  const lowerBound = ownersDog.recFood * 0.9;
+  const upperBound = ownersDog.recFood * 1.1;
+
+  if (ownersDog.curFood > lowerBound && ownersDog.curFood < upperBound) {
+    console.log("Eating fine");
+  } else if (ownersDog.curFood < lowerBound) {
+    console.log("Eating too little");
+  } else {
+    console.log("Eating too much");
+  }
 }
 
 console.log(sarahsDog);
+
+eatingFoodCalc(sarahsDog);
+
+console.log("---------------------");
+
+// -------------------------------------
+
+// 3. Create an array containing all owners of dogs who eat too much (ownersTooMuch) and an array with all owners of dogs who eat too little (ownersTooLittle).
