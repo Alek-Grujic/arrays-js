@@ -1092,21 +1092,34 @@ console.log("---------------------");
 
 let sarahsDog = dogs.find((dog) => dog.owners.includes("Sarah"));
 
+// function eatingFoodCalc(ownersDog) {
+//   const lowerBound = ownersDog.recFood * 0.9;
+//   const upperBound = ownersDog.recFood * 1.1;
+
+//   if (ownersDog.curFood > lowerBound && ownersDog.curFood < upperBound) {
+//     console.log(`Eating fine - ${ownersDog.recFood}`);
+//   } else if (ownersDog.curFood < lowerBound) {
+//     console.log(`Eating too little - ${ownersDog.recFood}`);
+//   } else {
+//     console.log(`Eating too much - ${ownersDog.recFood}`);
+//   }
+// }
 function eatingFoodCalc(ownersDog) {
   const lowerBound = ownersDog.recFood * 0.9;
   const upperBound = ownersDog.recFood * 1.1;
 
   if (ownersDog.curFood > lowerBound && ownersDog.curFood < upperBound) {
-    console.log("Eating fine");
+    return `Eating fine`;
   } else if (ownersDog.curFood < lowerBound) {
-    console.log("Eating too little");
+    return `Eating too little`;
   } else {
-    console.log("Eating too much");
+    return `Eating too much`;
   }
 }
 
 console.log(sarahsDog);
 
+console.log(eatingFoodCalc(sarahsDog));
 eatingFoodCalc(sarahsDog);
 
 console.log("---------------------");
@@ -1114,3 +1127,20 @@ console.log("---------------------");
 // -------------------------------------
 
 // 3. Create an array containing all owners of dogs who eat too much (ownersTooMuch) and an array with all owners of dogs who eat too little (ownersTooLittle).
+
+let ownersTooMuch = [];
+let ownersTooLittle = [];
+
+dogs.forEach((dog) => {
+  let resOfCalc = eatingFoodCalc(dog);
+
+  if (resOfCalc === "Eating too much") {
+    dog.owners.forEach((dogg) => ownersTooMuch.push(dogg));
+  }
+  if (resOfCalc === "Eating too little") {
+    dog.owners.forEach((dogg) => ownersTooLittle.push(dogg));
+  }
+});
+
+console.log("ownersToMuch array -", ownersTooMuch);
+console.log("ownersToLittle array -", ownersTooLittle);
