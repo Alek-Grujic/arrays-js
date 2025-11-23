@@ -1222,3 +1222,13 @@ const threeGroups = Object.groupBy(dogsWithoutOkay, (statusDog) => {
 });
 
 console.log(threeGroups);
+
+console.log("---------------------");
+
+// -------------------------------------
+
+// 9. Group the dogs by the number of owners they have
+
+const ownerNumbers = Object.groupBy(dogs, (owner) => owner.owners.length);
+
+console.log(ownerNumbers);
