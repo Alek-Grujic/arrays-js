@@ -1205,12 +1205,13 @@ console.log("---------------------");
 
 // 8. Group the dogs into the following 3 groups: 'exact', 'too-much' and 'too-little', based on whether they are eating too much, too little or the exact amount of food, based on the recommended food portion.
 
-const dogsWithoutOkay = dogs.filter((dog) => {
-  const status = eatingFoodCalc(dog);
-  const isExact = dog.curFood === Math.trunc(dog.recFood);
+const dogsWithoutOkay = dogs.filter(
+  (dog) =>
+    eatingFoodCalc(dog) !== "Eating okay" ||
+    dog.curFood === Math.trunc(dog.recFood)
+);
 
-  return isExact || status !== "Eating okay";
-});
+console.log(dogsWithoutOkay);
 
 const threeGroups = Object.groupBy(dogsWithoutOkay, (statusDog) => {
   let eatingFoodCalcVar = eatingFoodCalc(statusDog);
