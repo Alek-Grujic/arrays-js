@@ -1163,3 +1163,12 @@ let { ownersTooMuch, ownersTooLittle } = dogs.reduce(
 
 console.log(ownersTooMuch);
 console.log(ownersTooLittle);
+
+console.log("---------------------");
+
+// -------------------------------------
+
+// 4. Log a string to the console for each array created in 3., like this: "Matilda and Alice and Bob's dogs eat too much!" and "Sarah and John and Michael's dogs eat too little!"
+
+console.log(`${ownersTooMuch.join(" and ")}'s dogs eat too much.`);
+console.log(`${ownersTooLittle.join(" and ")}'s dogs eat too little.`);
