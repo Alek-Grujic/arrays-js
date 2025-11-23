@@ -1232,3 +1232,13 @@ console.log("---------------------");
 const ownerNumbers = Object.groupBy(dogs, (owner) => owner.owners.length);
 
 console.log(ownerNumbers);
+
+console.log("---------------------");
+
+// -------------------------------------
+
+// 10. Sort the dogs array by recommended food portion in an ascending order. Make sure to NOT mutate the original array!
+
+const sortedDog = dogs.toSorted((a, b) => a.recFood - b.recFood);
+
+console.log(sortedDog);
