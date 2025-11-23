@@ -1083,3 +1083,24 @@ dogs.forEach((dog) => {
 });
 
 console.log(dogs);
+
+console.log("---------------------");
+
+// -------------------------------------
+
+// 2. Find Sarah's dog and log to the console whether it's eating too much or too little. HINT: Some dogs have multiple users, so you first need to find Sarah in the owners array, and so this one is a bit tricky (on purpose) 🤓
+
+let sarahsDog = dogs.find((dog) => dog.owners.includes("Sarah"));
+
+if (
+  sarahsDog.curFood > sarahsDog.recFood * 0.9 &&
+  sarahsDog.curFood < sarahsDog.recFood * 1.1
+) {
+  console.log("Eating fine");
+} else if (sarahsDog.curFood < sarahsDog.recFood * 0.9) {
+  console.log("Eating too little");
+} else {
+  console.log("Eating too much");
+}
+
+console.log(sarahsDog);
